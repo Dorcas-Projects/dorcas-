@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base colors */
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  
+  /* Component colors */
+  --card: 221 39% 15%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  
+  /* UI colors */
+  --primary: 196 100% 50%; /* Cyan blue */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 263 85% 60%; /* Purple */
+  --secondary-foreground: 210 40% 98%;
+  --accent: 330 100% 62%; /* Bright pink */
+  --accent-foreground: 210 40% 98%;
+  --success: 158 64% 40%;
+  --success-foreground: 210 40% 98%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215 16% 47%;
+  
+  /* Border colors */
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 230 79% 60%;
+  
+  /* Other UI properties */
+  --radius: 0.5rem;
+
+  /* Light specific variables */
+  --light: 210 40% 98%;
+  --lightgray: 210 17% 93%;
+  --dark: 216 12% 15%;
+}
+
+.dark {
+  /* Base colors */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  
+  /* Component colors */
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  /* UI colors */
+  --primary: 230 79% 60%; /* #4361EE */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 270 87% 45%; /* Lightened for dark mode */
+  --secondary-foreground: 210 40% 98%;
+  --accent: 330 89% 56%; /* #F72585 */
+  --accent-foreground: 210 40% 98%;
+  --success: 158 64% 40%;
+  --success-foreground: 210 40% 98%;
+  --muted: 217 32% 17%;
+  --muted-foreground: 215 20% 65%;
+  
+  /* Border colors */
+  --border: 217 32% 17%;
+  --input: 217 32% 17%;
+  --ring: 230 79% 60%;
+
+  /* Dark specific variables */
+  --light: 222 47% 11%;
+  --lightgray: 217 32% 17%;
+  --dark: 210 40% 98%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  code, pre {
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+/* Timeline styling */
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  @apply bg-border;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  @apply bg-primary rounded-full;
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Glowing effect */
+.glow {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(to right, #00ffff, #bf55ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animation for spinning elements */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Animation for pulsing elements */
+@keyframes ping-slow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s ease-in-out infinite;
+}
+
+/* Subtle scaling on hover */
+.scale-102 {
+  transform: scale(1.02);
+}
+
+/* Futuristic border */
+.tech-border {
+  position: relative;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.tech-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, transparent);
+  animation: border-flow 3s linear infinite;
+}
+
+@keyframes border-flow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
